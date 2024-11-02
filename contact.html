@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Your Website</title>
+  
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+      <div class="navbar" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mt-5">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, feel free to reach out using the form below or send an email to <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">amela.vatres@stu.ibu.edu.ba</a>.</p>
+
+    <form action="https://jsonplaceholder.typicode.com/posts" method="POST">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="1234567890">
+      </div>
+      
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <select id="department" name="department" class="form-control">
+          <option value="sales">Sales</option>
+          <option value="support">Support</option>
+          <option value="general">General Inquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Preferred Contact Method:</label><br>
+        <input type="radio" id="contactEmail" name="contact_method" value="email" checked>
+        <label for="contactEmail">Email</label><br>
+        <input type="radio" id="contactPhone" name="contact_method" value="phone">
+        <label for="contactPhone">Phone</label>
+      </div>
+
+      <div class="form-group">
+        <label for="subscribe">Subscribe to our newsletter:</label>
+        <input type="checkbox" id="subscribe" name="subscribe">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </main>
+
+  
+  <footer class="mt-5 text-center">
+    <p>Course Name | Your Name</p>
+  </footer>
+
+</body>
+</html>
