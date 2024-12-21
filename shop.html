@@ -31,7 +31,7 @@
         .modal-content {
             background-color: #1a1a1a;
             color: #ffffff;
-            border: 3px solid #ff5722; 
+            border: 3px solid #ff5722;
             border-radius: 10px;
         }
         .modal-dialog {
@@ -50,26 +50,25 @@
             color: #ff5722 !important;
         }
         html, body {
-            height: 100%; 
+            height: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
         }
         .container {
-            flex: 1; 
+            flex: 1;
         }
         footer {
             background-color: #1a1a1a;
-            color: #ff5722; 
+            color: #ff5722;
             text-align: center;
             padding: 15px 0;
             width: 100%;
         }
         .text-orange {
-            color: #ff5722 !important; 
+            color: #ff5722 !important;
         }
 
-        /* Light theme */
         .light {
             background-color: #ffffff !important;
             color: #343a40;
@@ -90,17 +89,16 @@
         }
 
         .light footer {
-            background-color: #e0e0e0; 
+            background-color: #e0e0e0;
             color: #343a40;
         }
 
         .light .card {
-            background-color: #f8f9fa !important;  
-            color: #343a40 !important;  
-            border: 1px solid #ddd !important; 
+            background-color: #f8f9fa !important;
+            color: #343a40 !important;
+            border: 1px solid #ddd !important;
         }
 
-        
         .dark {
             background-color: #1a1a1a !important;
             color: #ffffff;
@@ -132,18 +130,20 @@
             margin-top: 10px;
         }
 
-      
         .view-more-btn {
-            
             color: #ffffff;
             background: transparent;
             border: none;
-        
         }
         .view-more-btn:hover {
-            color: #ffffff !important; 
+            color: #ffffff !important;
         }
-        
+
+        .interactive-gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-dark text-light dark">
@@ -177,7 +177,7 @@
             
             <div class="col-12 col-md-8 mb-4">
                 <div class="card bg-dark text-light h-100 border border-orange">
-                    <img src="slike/prework.jpeg" class="card-img-top" alt="Whey Protein">
+                    <img src="slike/prework.jpeg" class="card-img-top interactive-gallery" alt="Whey Protein" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="slike/prework.jpeg">
                     <div class="card-body">
                         <h5 class="card-title text-orange">Whey Protein</h5>
                         <p class="card-text">Protein powder for building muscle.</p>
@@ -192,7 +192,7 @@
 
             <div class="col-12 col-md-8 mb-4">
                 <div class="card bg-dark text-light h-100 border border-orange">
-                    <img src="slike/creatine.jpeg" class="card-img-top" alt="Creatine">
+                    <img src="slike/creatine.jpeg" class="card-img-top interactive-gallery" alt="Creatine" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="slike/creatine.jpeg">
                     <div class="card-body">
                         <h5 class="card-title text-orange">Creatine</h5>
                         <p class="card-text">Enhance strength and power.</p>
@@ -207,7 +207,7 @@
 
             <div class="col-12 col-md-8 mb-4">
                 <div class="card bg-dark text-light h-100 border border-orange">
-                    <img src="slike/bcaa.jpeg" class="card-img-top" alt="BCAA">
+                    <img src="slike/bcaa.jpeg" class="card-img-top interactive-gallery" alt="BCAA" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="slike/bcaa.jpeg">
                     <div class="card-body">
                         <h5 class="card-title text-orange">BCAA</h5>
                         <p class="card-text">Amino acids for recovery.</p>
@@ -222,7 +222,7 @@
 
             <div class="col-12 col-md-8 mb-4">
                 <div class="card bg-dark text-light h-100 border border-orange">
-                    <img src="slike/prework.jpeg" class="card-img-top" alt="Preworkout">
+                    <img src="slike/prework.jpeg" class="card-img-top interactive-gallery" alt="Preworkout" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="slike/prework.jpeg">
                     <div class="card-body">
                         <h5 class="card-title text-orange">Preworkout</h5>
                         <p class="card-text">Boost your energy before the gym.</p>
@@ -237,7 +237,7 @@
 
             <div class="col-12 col-md-8 mb-4">
                 <div class="card bg-dark text-light h-100 border border-orange">
-                    <img src="slike/majica.jpeg" class="card-img-top" alt="T-Shirt">
+                    <img src="slike/majica.jpeg" class="card-img-top interactive-gallery" alt="T-Shirt" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-image="slike/majica.jpeg">
                     <div class="card-body">
                         <h5 class="card-title text-orange">T-Shirt</h5>
                         <p class="card-text">Comfortable gym wear.</p>
@@ -252,9 +252,38 @@
         </div>
     </div>
 
+    
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img id="modal-image" src="" alt="Product Image" class="w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-success text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseModalLabel">Successful Purchase</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your purchase was successful!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="text-center py-3">
         <div class="container">
-            <a href="mailto:info@gym.com" class="text-decoration-none text-orange">info@gym.com</a> 
+            <a href="mailto:info@gym.com" class="text-decoration-none text-orange">info@gym.com</a>
             <a href="tel:+123456789" class="text-decoration-none text-orange">+123456789</a>
             <a href="https://www.instagram.com" target="_blank" class="text-decoration-none text-orange">@gym</a>
         </div>
@@ -287,12 +316,23 @@
             });
         });
 
+     
         function toggleDescription(button) {
             const moreText = button.nextElementSibling;
             const isVisible = moreText.style.display === 'block';
             moreText.style.display = isVisible ? 'none' : 'block';
             button.textContent = isVisible ? 'View More' : 'View Less';
         }
+
+        
+        const galleryImages = document.querySelectorAll('.interactive-gallery');
+        galleryImages.forEach(image => {
+            image.addEventListener('click', function() {
+                const imageUrl = this.getAttribute('data-bs-image');
+                const modalImage = document.getElementById('modal-image');
+                modalImage.src = imageUrl;
+            });
+        });
     </script>
 </body>
 </html>
