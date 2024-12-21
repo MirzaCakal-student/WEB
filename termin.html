@@ -8,25 +8,27 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
+            background-color: #121212; 
             color: #ffffff;
             margin: 0;
         }
         h1, h2 {
             text-align: center;
-            color: #ff5722;
+            color: #ff5722; 
             margin-top: 50px;
         }
         .navbar-custom {
             background-color: #1a1a1a;
         }
-     
+        .navbar-nav a {
+            color: #ff5722 !important; 
+        }
         .container {
             max-width: 500px;
             margin: 20px auto;
             margin-bottom: 60px;
             padding: 20px;
-            background-color: #1a1a1a;
+            background-color: #1a1a1a; 
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
@@ -81,6 +83,68 @@
         .text-orange {
             color: #ff5722 !important; 
         }
+
+       
+        .light {
+            background-color: #ffffff; 
+            color: #343a40;
+        }
+
+        .light .navbar-custom {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .light .container {
+            background-color: #ffffff;
+            color: #343a40;
+        }
+
+        .light footer {
+            background-color: #e0e0e0;
+            color: #343a40;
+        }
+
+        
+        .dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .dark .navbar-custom {
+            background-color: #1a1a1a;
+        }
+
+        .dark .container {
+            background-color: #1a1a1a;
+        }
+
+        .dark footer {
+            background-color: #1a1a1a;
+            color: #ff5722;
+        }
+
+        .form-check-label {
+            color: #ffffff !important;
+        }
+
+        .light .form-check-label {
+            color: #000000 !important; 
+        }
+
+      
+        .form-check-label {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .light .form-check-label {
+            color: #000000; 
+        }
+
+        .dark .form-check-label {
+            color: #ffffff; 
+        }
     </style>
 </head>
 <body class="bg-dark text-light">
@@ -97,12 +161,16 @@
                     <a href="main.html" class="nav-link menuItem text-light mx-2">Home</a>
                     <a href="shop.html" class="nav-link menuItem text-light mx-2">Shop</a>
                     <a href="termin.html" class="nav-link menuItem text-light mx-2">Appointment</a>
-                    <a href="treneri.html" class="nav-link menuItem text-light mx-2">Team</a>
-                    <a href="contact.html" class="nav-link menuItem text-light mx-2">Contact</a>
+                    
+                    <div class="form-check form-switch text-light ms-3">
+                        <input class="form-check-input" type="checkbox" id="themeSwitch">
+                        <label class="form-check-label" for="themeSwitch" id="modeLabel">Dark Mode</label> <!-- Default label is Dark Mode -->
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
+
     <h1>Appointment</h1>
     <div class="container">
         <h2>Schedule an Appointment</h2>
@@ -147,7 +215,6 @@
 
     <footer class="text-center py-3">
         <div class="container1">
-            
             <p><a href="mailto:info@gym.com" class="text-decoration-none text-orange">info@gym.com</a> | <a href="tel:+123456789" class="text-decoration-none text-orange">+123456789</a></p>
             <p><a href="https://www.instagram.com" target="_blank" class="text-decoration-none text-orange">@gym</a></p>
         </div>
@@ -189,6 +256,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        const themeSwitch = document.getElementById("themeSwitch");
+        const body = document.body;
+        const modeLabel = document.getElementById("modeLabel");
+
+        themeSwitch.addEventListener("change", function() {
+            if (themeSwitch.checked) {
+                body.classList.remove("dark");
+                body.classList.add("light");
+                modeLabel.textContent = "Light Mode"; 
+            } else {
+                body.classList.remove("light");
+                body.classList.add("dark");
+                modeLabel.textContent = "Dark Mode"; 
+            }
+        });
+
+        
+        if (!themeSwitch.checked) {
+            modeLabel.textContent = 'Dark Mode'; 
+        }
+
         function submitForm() {
             const trainer = document.getElementById("trainer").value;
             const time = document.getElementById("time").value;
